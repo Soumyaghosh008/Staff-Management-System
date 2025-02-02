@@ -7,14 +7,16 @@
 // This function also call each and every user_defined_function as per the choises.
 int main(){
 
-    int your_option;
+    int your_option, try = 0;
 
 // Here we creat the entier manue for the user, to choose the option wisely.
-Try_Again: printf("Enter [1] to Add a Staff Profile \n");
+
+Try_Again: //Address for the goto feature. 
+
+printf("Enter [1] to Add a Staff Profile \n");
 printf("Enter [2] to Delete a Staff Profile \n");
 printf("Enter [3] to Search a Partcular Staff Profile \n");
 printf("Enter [4] to Show the Complete Dataset of Staff Profiles \n");
-printf("Enter [5] to Add a Staff Profile \n");
 
 // Here we take the option from the user.
      printf("Enter Your Option: ");
@@ -42,13 +44,23 @@ case 1:
 
 // Here we calling the function which show the complete dataset of staff profiles.
     case 4:
-    show_all__staff_profile();
+    show_all_staff_profile();
     break;
 
+// Here we print and compute the try_again feature.
 default:
 printf("404 ERROR. Try Again \n");
-goto Try_Again;
-    break;
+
+// Here we compute the calculations for the try again feature. 
+// Note: This feature only works for 3 times only. After that you have to do this again from start.
+try++;
+if(try < 4){
+    goto Try_Again;
+}else{
+    printf("Do it from Start");
+}
+
+
 }
     return 0;
 }
