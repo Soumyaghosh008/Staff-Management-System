@@ -65,6 +65,6 @@ void search_staff_profile(){
 
 
 // This the function which which compute the operation to show the overall dataset of staff profiles.
-void show_all__staff_profile(){
+void show_all_staff_profile(){
 
 }
