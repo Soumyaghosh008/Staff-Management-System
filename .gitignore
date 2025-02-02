@@ -2,7 +2,7 @@
 *.o
 *.exe
 *.out
-
+*.vscode
 # Ignore temporary files
 *.tmp
 *.log
