@@ -8,7 +8,7 @@
 void add_staff_profile(){
 
 // Open file in append mode
-    FILE *file = fopen("database/database.csv", "a+");
+    FILE *file = fopen("database/staff_data.csv", "a+");
     if (file == NULL) {
         printf("404 Error opening file!\n");
     }
