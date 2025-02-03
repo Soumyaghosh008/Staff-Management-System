@@ -52,7 +52,7 @@ A simple **Staff Management System** built using **C Programming Language**, whi
 
 ## 💻 Installation & Usage
 ```sh
-git clone https://github.com/your-username/Staff-Management-System.git
+git clone https://github.com/Soumyaghosh008/Staff-Management-System.git
 cd Staff-Management-System
 ```
 
