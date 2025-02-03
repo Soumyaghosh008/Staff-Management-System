@@ -56,8 +56,14 @@ git clone https://github.com/your-username/Staff-Management-System.git
 cd Staff-Management-System
 ```
 
-## 🔩 Compile & Run
+## 🔩 Compile & Run (For Mac & Linux)
 ```sh
 gcc main.c staff_operations.c -o staff_management
 ./staff_management
+```
+
+## 🔩 Compile & Run (For Windows)
+```sh
+gcc main.c staff_operations.c -o staff_management
+staff_management.exe
 ```
