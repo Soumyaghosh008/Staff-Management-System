@@ -4,67 +4,102 @@
 #include <math.h>
 #include "staff_operations.h"
 
-// This the function which which compute the operation to adding a staff profile.
-void add_staff_profile(){
+char x; // This variable is use to calculate the ascii value of [Y].
 
-// Open file in append mode
+// This function adds a staff profile.
+void add_staff_profile() {
+    // Open file in append mode
     FILE *file = fopen("database/staff_data.csv", "a+");
     if (file == NULL) {
         printf("404 Error opening file!\n");
+        return;  // Exit function if file opening fails
     }
 
     char staff_name[100];
     char staff_position[100];
     char staff_department_name[100];
     char staff_school_name[100];
-    int staff_id[100];
+    char staff_id[100];
 
-// Here we take the name from the user.
+
+    Try_Again:
+    // Take input from the user
     printf("Enter The Staff Name: ");
-    scanf("%[^\n]", staff_name);
+    scanf(" %[^\n]", staff_name);
+    getchar();  // Consume newline
 
-// Here we take the ID from the user.
     printf("Enter The Staff ID: ");
-    scanf("%d", staff_id);
+    scanf(" %[^\n]", staff_id);
+    getchar();  // Consume newline
 
-// Here we take the position from the user.
     printf("Enter His/Her Position: ");
-    scanf("%[^\n]", staff_position);
+    scanf(" %[^\n]", staff_position);
+    getchar();  // Consume newline
 
-// Here we take the department name from the user.
     printf("Enter The Department Name: ");
-    scanf("%[^\n]", staff_department_name);
+    scanf(" %[^\n]", staff_department_name);
+    getchar();  // Consume newline
 
-// Here we take the school name from the user.
     printf("Enter The School Name: ");
-    scanf("%[^\n]", staff_school_name);
+    scanf(" %[^\n]", staff_school_name);
+    getchar();  // Consume newline
 
-// Write to CSV file
-    fprintf(file, "%s,%s,%s,%s,%d \n", staff_name, staff_position,
-    staff_department_name, staff_school_name, staff_school_name,staff_id);
+    // Write to CSV file
+    fprintf(file, "%s,%s,%s,%s,%s\n", staff_name, staff_position,
+            staff_department_name, staff_school_name, staff_id);
+
+    printf("\n");
+    printf("Staff Added Successfully! (Record saved in database)\n"); // This is the messege after recording the informations.
+    printf("\n");
+
+    printf("Press [Y/N] to add more Profile or Stop Here: "); // Here we take option from user that he want to countiniue or not.
+    scanf("%c", &x);
+
+    int y = (int) x; //here we typecast the char value from int value.
+
+    if (y == 121 || y == 89)
+    {
+        goto Try_Again;
+    }
     
-    printf("Staff Added Successfully! (Data saved in database.csv)\n");
-
-    fclose(file);
     // Close file
-
-
+    fclose(file);
 }
 
-
-// This the function which which compute the operation to deleting a staff profile.
-void delete_staff_profile(){
-
+// Function to delete a staff profile
+void delete_staff_profile() {
+    // Implementation needed
 }
 
-
-// This the function which which compute the operation to search a partclar staff profile.
-void search_staff_profile(){
-
+// Function to search for a particular staff profile
+void search_staff_profile() {
+    // Implementation needed
 }
 
+// Function to show all staff profiles
+void show_all_staff_profile() {
 
-// This the function which which compute the operation to show the overall dataset of staff profiles.
-void show_all_staff_profile(){
+    FILE *file = fopen("database/staff_data.csv", "r"); // Open the file in read mode
+    if (file == NULL) {
+        printf("Error: Unable to open the database file.\n");
+        return;
+    }
+
+    char line[256]; // Buffer to store each line from the file
+    printf("| STAFF NAME          | DESIGNATION    | DEPARTMENT    | SCHOOL NAME    | STAFF ID    | \n");
+    printf("----------------------------------------------------------------------------------\n");
+
+    int count = 0; // To check if there are records
+    while (fgets(line, sizeof(line), file)) {
+        char staff_name[100], staff_id[100], staff_position[100], staff_department[100], staff_school[100];
+
+        // Extract values from CSV format
+        if (sscanf(line, "%[^,],%[^,],%[^,],%[^,],%[^,]", staff_name, staff_position, staff_department, staff_school, staff_id) == 5) {
+            printf("| %-15s | %-15s | %-15s | %-15s | %-15s |\n", staff_name, staff_position, staff_department, staff_school, staff_id);
+            count++;
+        }
+    }
+
+    fclose(file); // Close the file
 
 }
