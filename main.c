@@ -56,7 +56,7 @@ case 1:
 // Here we print and compute the try_again feature.
 default:
 printf("\n\n\n");
-printf("\t\t\t\t\t #####_____404 ERROR.TRY AGAIN_____#####\n\n\n\n\n");;
+printf("404 ERROR.TRY AGAIN");;
 
 // Here we compute the calculations for the try again feature. 
 // Note: This feature only works for 3 times only. After that you have to do this again from start.
