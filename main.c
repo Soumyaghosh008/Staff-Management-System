@@ -12,6 +12,9 @@ int main(){
 // Here we creat the entier manue for the user, to choose the option wisely.
 
 //Just adding some basic styling.
+
+printf("\n\n"); //Just adding some basic styling.
+
 printf("\t\t\t\t\t #####_____Welcome To Staff Managament System_____#####\n\n\n\n\n");
 
 Try_Again: //Address for the goto feature. 
@@ -19,7 +22,8 @@ Try_Again: //Address for the goto feature.
 printf("Enter [1] to Add a Staff Profile \n");
 printf("Enter [2] to Delete a Staff Profile \n");
 printf("Enter [3] to Search a Partcular Staff Profile \n");
-printf("Enter [4] to Show the Complete Dataset of Staff Profiles \n");
+printf("Enter [4] to Show the Complete Staff Profiles \n");
+printf("Enter [5] to Exit \n");
 
 // Adding some styling.
 printf("\n\n\n");
@@ -51,6 +55,13 @@ case 1:
 // Here we calling the function which show the complete dataset of staff profiles.
     case 4:
     show_all_staff_profile();
+    break;
+
+// Here we exit from this program.
+    case 5:
+    printf("\n\n\n");
+    printf("\t\t\t\t\t #####_____Goodbye.See You Soon My Friend_____##### \n");;
+    printf("\n\n\n");
     break;
 
 // Here we print and compute the try_again feature.
