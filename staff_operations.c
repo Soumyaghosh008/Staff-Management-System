@@ -4,9 +4,6 @@
 #include <math.h>
 #include "staff_operations.h"
 
-char x,n; // This global variable is use to calculate the ascii value of [Yes & No].
-
-
 
 
 
@@ -21,6 +18,9 @@ void add_staff_profile() {
 
     printf("\n\n"); // To add a stlying.
 
+
+    char x; 
+    int n;// This variable is use to calculate the ascii value of [Yes & No].
 
     // Open file in append mode
     FILE *file = fopen("database/staff_data.csv", "a+");
@@ -62,12 +62,20 @@ void add_staff_profile() {
     fprintf(file, "%s,%s,%s,%s,%s\n", staff_name, staff_position,
             staff_department_name, staff_school_name, staff_id);
 
+
+        fflush(file);  // Force the data to be written immediately.
+
+
     printf("\n");
     printf("Staff Added Successfully! (Record saved in database)\n"); // This is the messege after recording the informations.
     printf("\n");
+    
+    // Close file
+    fclose(file);
+
 
     printf("Press [Y/N] to add more Profile or Stop Here: "); // Here we take option from user that he want to countiniue or not.
-    scanf("%c", &x);
+    scanf(" %c", &x);
 
     n = (int) x; //here we typecast the char value from int value.
 
@@ -78,10 +86,6 @@ void add_staff_profile() {
     {
         main();
     }
-    
-    
-    // Close file
-    fclose(file);
 }
 
 
@@ -136,6 +140,8 @@ void show_all_staff_profile() {
 
     printf("\n\n"); //Just adding some basic styling.
 
+    char x; 
+    int n;// This variable is use to calculate the ascii value of [Yes & No].   
 
     FILE *file = fopen("database/staff_data.csv", "r"); // Open the file in read mode
     if (file == NULL) {
@@ -148,7 +154,6 @@ void show_all_staff_profile() {
     printf("| %-20s | %-15s | %-15s | %-15s | %-8s \n", 
             "STAFF NAME", "DESIGNATION", "DEPARTMENT", "SCHOOL NAME", "STAFF ID");
     printf("-------------------------------------------------------------------------------------------\n");
-
     int count = 0; // To check if there are records
     while (fgets(line, sizeof(line), file)) {
         char staff_name[100], staff_id[100], staff_position[100], staff_department[100], staff_school[100];
@@ -163,12 +168,16 @@ void show_all_staff_profile() {
     fclose(file); // Close the file
 
 
-    printf("Press [N] to Return to Main Menu : "); // Here we take option from user that he want to countiniue or not.scanf("%c", &x);
-    scanf("%d", &x);
+    printf("\n");
+    printf("Press [Y] for go to Main Menu: "); // Here we take option from user that he want to countiniue or not.
+    scanf(" %c", &x);
 
     n = (int) x; //here we typecast the char value from int value.
-    if (n == 78 || n == 110)
+
+    if (n == 121 || n == 89)
     {
         main();
     }
+
+    
 }
