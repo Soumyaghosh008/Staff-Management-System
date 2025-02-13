@@ -74,6 +74,11 @@ Again:
     else if (n == 78 || n == 110)
     {
         main();
+    }else{
+        printf("\n\n\n");
+        printf("404 ERROR.TRY AGAIN \n");
+        ;
+        printf("\n\n\n");
     }
 }
 
@@ -106,7 +111,7 @@ void delete_staff_profile()
         return;
     }
 
-    char line[500];
+    char line[5000];
 
     // Read file line by line
     while (fgets(line, sizeof(line), file) != NULL)
@@ -148,6 +153,11 @@ void delete_staff_profile()
     if (n == 121 || n == 89)
     {
         main();
+    }else{
+        printf("\n\n\n");
+        printf("404 ERROR.TRY AGAIN \n");
+        ;
+        printf("\n\n\n");
     }
 
     printf("\n\n"); // Just adding some basic styling
@@ -174,7 +184,7 @@ void search_staff_profile()
         return;
     }
 
-    char line[500]; // Buffer to store each line
+    char line[5000]; // Buffer to store each line
     int found = 0;  // Flag to check if record is found
 
     // Read file line by line
@@ -213,6 +223,11 @@ void search_staff_profile()
     if (n == 121 || n == 89)
     {
         main();
+    }else{
+        printf("\n\n\n");
+        printf("404 ERROR.TRY AGAIN \n");
+        ;
+        printf("\n\n\n");
     }
     printf("\n\n"); // Just adding some basic styling
 }
@@ -262,5 +277,10 @@ void show_all_staff_profile()
     if (n == 121 || n == 89)
     {
         main();
+    }else{
+        printf("\n\n\n");
+        printf("404 ERROR.TRY AGAIN \n");
+        ;
+        printf("\n\n\n");
     }
 }
