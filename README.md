@@ -2,9 +2,9 @@
 
 This is a complete C Programming based project, created to record and manage all of your staff/student/visitors. For more information please read the README file.
 
-## Description: Staff Management System (SMS v0.1)
+## Description: Staff Management System (SMS v1.0)
 
-A simple **Staff Management System** built using **C Programming Language**, which allows users to manage staff profiles efficiently.
+A simple **Staff Management System** built using **C Programming Language**, which allows users to manage staff profiles efficiently. For now it's a Terminal based Program.
 
 ## 🚀 Features
 
@@ -56,6 +56,25 @@ A simple **Staff Management System** built using **C Programming Language**, whi
 - **`5. Exit`**
   - Displays a **Goodbye Message** and **Exits the Program**.
 
+## 🔩 Technology Used:
+
+- C Programming
+- CSV based Datbase Management
+- File Handling in C Programming.
+
+## ✅ Advantages:
+
+- Minimal Design
+- Easy to Record Data
+- Highly Scalable & Optimised
+- Small & Compressed Architecture
+
+## 📌 Points of Improvement:
+
+- Use a proper database system, instead using .csv file like MongoDB, MySQL ect.
+- Currently optimised for storing max 5000 records, which need to be improved.
+- Improve the UI/UX experience for better user interaction.
+
 ## 💻 Installation & Usage
 
 ```sh
@@ -69,3 +88,5 @@ cd Staff-Management-System
 gcc main.c staff_operations.c -o staff_management
 ./staff_management
 ```
+
+## Thank you for visiting my project! I aim to provide updates every month to improve and enhance this project. Contributions are always welcome! If you have improvements or new features to suggest, feel free to submit a pull request. If your contribution meets the project’s standards, congratulations—you’ll become an official contributor! Let’s learn and build together. Don’t hesitate to contribute!
