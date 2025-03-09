@@ -4,11 +4,23 @@
 #include <math.h>
 #include "staff_operations.h"
 
+// Adding the structure layout for better memory management process.
+struct staff_operations
+{
+    char staff_name[50];
+    char staff_position[50];
+    char staff_department_name[50];
+    char staff_school_name[50];
+    char staff_id[50];
+    char id[50];
+    char line[5000]; // Buffer to store each line from the file
+};
+
 // This function adds a staff profile.
 void add_staff_profile()
 {
-
-    printf("\n\n"); // To add a stlying.
+    struct staff_operations fun_1; // in this structure the object is [info].
+    printf("\n\n");                // To add a stlying.
 
     char x;
     int n; // This variable is use to calculate the ascii value of [Yes & No].
@@ -21,37 +33,31 @@ void add_staff_profile()
         return; // Exit function if file opening fails
     }
 
-    char staff_name[50];
-    char staff_position[50];
-    char staff_department_name[50];
-    char staff_school_name[50];
-    char staff_id[50];
-
 Again:
     // Take input from the user
     printf("Enter The Staff Name: ");
-    scanf(" %[^\n]", staff_name);
+    scanf(" %[^\n]", fun_1.staff_name);
     getchar(); // Consume newline
 
     printf("Enter The Staff ID: ");
-    scanf(" %[^\n]", staff_id);
+    scanf(" %[^\n]", fun_1.staff_id);
     getchar(); // Consume newline
 
     printf("Enter His/Her Position: ");
-    scanf(" %[^\n]", staff_position);
+    scanf(" %[^\n]", fun_1.staff_position);
     getchar(); // Consume newline
 
     printf("Enter The Department Name: ");
-    scanf(" %[^\n]", staff_department_name);
+    scanf(" %[^\n]", fun_1.staff_department_name);
     getchar(); // Consume newline
 
     printf("Enter The School Name: ");
-    scanf(" %[^\n]", staff_school_name);
+    scanf(" %[^\n]", fun_1.staff_school_name);
     getchar(); // Consume newline
 
     // Write to CSV file
-    fprintf(file, "%s,%s,%s,%s,%s\n", staff_name, staff_position,
-            staff_department_name, staff_school_name, staff_id);
+    fprintf(file, "%s,%s,%s,%s,%s\n", fun_1.staff_name, fun_1.staff_position,
+            fun_1.staff_department_name, fun_1.staff_school_name, fun_1.staff_id);
 
     fflush(file); // Force the data to be written immediately.
 
@@ -74,7 +80,9 @@ Again:
     else if (n == 78 || n == 110)
     {
         main();
-    }else{
+    }
+    else
+    {
         printf("\n\n\n");
         printf("404 ERROR.TRY AGAIN \n");
         ;
@@ -85,16 +93,16 @@ Again:
 // Function to delete a staff profile
 void delete_staff_profile()
 {
+    struct staff_operations fun_2;
 
     printf("\n\n"); // Just adding some basic styling.
 
-    char id[50], staff_name[50], staff_id[50], staff_position[50], staff_department[50], staff_school[50];
     char x;
     int found = 0;
     int n;
 
     printf("Enter The Staff ID to Delete: ");
-    scanf("%s", id);
+    scanf("%s", fun_2.id);
 
     FILE *file = fopen("database/staff_data.csv", "r"); // Open original file in read mode
     if (file == NULL)
@@ -117,10 +125,10 @@ void delete_staff_profile()
     while (fgets(line, sizeof(line), file) != NULL)
     {
         // Extract staff details from line
-        sscanf(line, "%[^,],%[^,],%[^,],%[^,],%s", staff_name, staff_position, staff_department, staff_school, staff_id);
+        sscanf(line, "%[^,],%[^,],%[^,],%[^,],%s", fun_2.staff_name, fun_2.staff_position, fun_2.staff_department_name, fun_2.staff_school_name, fun_2.staff_id);
 
         // If ID matches, do NOT write this line (skip deletion)
-        if (strcmp(id, staff_id) == 0)
+        if (strcmp(fun_2.id, fun_2.staff_id) == 0)
         {
             found = 1;
             continue;
@@ -136,7 +144,7 @@ void delete_staff_profile()
     {
         remove("database/staff_data.csv");
         rename("database/temp.csv", "database/staff_data.csv");
-        printf("Staff ID %s deleted successfully!\n", id);
+        printf("Staff ID %s deleted successfully!\n", fun_2.id);
     }
     else
     {
@@ -153,7 +161,9 @@ void delete_staff_profile()
     if (n == 121 || n == 89)
     {
         main();
-    }else{
+    }
+    else
+    {
         printf("\n\n\n");
         printf("404 ERROR.TRY AGAIN \n");
         ;
@@ -166,16 +176,14 @@ void delete_staff_profile()
 // Function to search for a particular staff profile
 void search_staff_profile()
 {
-
+    struct staff_operations fun_3;
     printf("\n\n"); // Just adding some basic styling.
 
     char x;
     int n;
-    char id[50];
-    char staff_name[50], staff_id[50], staff_position[50], staff_department[50], staff_school[50];
 
     printf("Enter The Staff ID: ");
-    scanf("%s", id); // Taking ID as input
+    scanf("%s", fun_3.id); // Taking ID as input
 
     FILE *file = fopen("database/staff_data.csv", "r"); // Open file in read mode
     if (file == NULL)
@@ -185,15 +193,15 @@ void search_staff_profile()
     }
 
     char line[5000]; // Buffer to store each line
-    int found = 0;  // Flag to check if record is found
+    int found = 0;   // Flag to check if record is found
 
     // Read file line by line
     while (fgets(line, sizeof(line), file) != NULL)
     {
         // Extracting data from the line
-        sscanf(line, "%[^,],%[^,],%[^,],%[^,],%s", staff_name, staff_position, staff_department, staff_school, staff_id);
+        sscanf(line, "%[^,],%[^,],%[^,],%[^,],%s", fun_3.staff_name, fun_3.staff_position, fun_3.staff_department_name, fun_3.staff_school_name, fun_3.staff_id);
 
-        if (strcmp(id, staff_id) == 0)
+        if (strcmp(fun_3.id, fun_3.staff_id) == 0)
         { // Compare user input with file data
             printf("\nStaff Found!\n");
             printf("-------------------------------------------------------------------------------\n");
@@ -201,7 +209,7 @@ void search_staff_profile()
                    "STAFF NAME", "DESIGNATION", "DEPARTMENT", "SCHOOL", "STAFF ID");
             printf("-------------------------------------------------------------------------------\n");
             printf("| %-20s | %-15s | %-10s | %-10s | %-8s |\n",
-                   staff_name, staff_position, staff_department, staff_school, staff_id);
+                   fun_3.staff_name, fun_3.staff_position, fun_3.staff_department_name, fun_3.staff_school_name, fun_3.staff_id);
             found = 1;
             break; // Stop searching after finding the record
         }
@@ -223,7 +231,9 @@ void search_staff_profile()
     if (n == 121 || n == 89)
     {
         main();
-    }else{
+    }
+    else
+    {
         printf("\n\n\n");
         printf("404 ERROR.TRY AGAIN \n");
         ;
@@ -235,7 +245,7 @@ void search_staff_profile()
 // Function to show all staff profiles
 void show_all_staff_profile()
 {
-
+    struct staff_operations fun_4;
     printf("\n\n"); // Just adding some basic styling.
 
     char x;
@@ -248,20 +258,17 @@ void show_all_staff_profile()
         return;
     }
 
-    char line[5000]; // Buffer to store each line from the file
     printf("-------------------------------------------------------------------------------------------\n");
     printf("| %-20s | %-15s | %-15s | %-15s | %-8s \n",
            "STAFF NAME", "DESIGNATION", "DEPARTMENT", "SCHOOL NAME", "STAFF ID");
     printf("-------------------------------------------------------------------------------------------\n");
     int count = 0; // To check if there are records
-    while (fgets(line, sizeof(line), file))
+    while (fgets(fun_4.line, sizeof(fun_4.line), file))
     {
-        char staff_name[50], staff_id[50], staff_position[50], staff_department[50], staff_school[50];
-
         // Extract values from CSV format
-        if (sscanf(line, "%[^,],%[^,],%[^,],%[^,],%[^,]", staff_name, staff_position, staff_department, staff_school, staff_id) == 5)
+        if (sscanf(fun_4.line, "%[^,],%[^,],%[^,],%[^,],%[^,]", fun_4.staff_name, fun_4.staff_position, fun_4.staff_department_name, fun_4.staff_school_name, fun_4.staff_id) == 5)
         {
-            printf("| %-20s | %-15s | %-15s | %-15s | %-8s  \n", staff_name, staff_position, staff_department, staff_school, staff_id);
+            printf("| %-20s | %-15s | %-15s | %-15s | %-8s  \n", fun_4.staff_name, fun_4.staff_position, fun_4.staff_department_name, fun_4.staff_school_name, fun_4.staff_id);
             count++;
         }
     }
@@ -277,7 +284,9 @@ void show_all_staff_profile()
     if (n == 121 || n == 89)
     {
         main();
-    }else{
+    }
+    else
+    {
         printf("\n\n\n");
         printf("404 ERROR.TRY AGAIN \n");
         ;
