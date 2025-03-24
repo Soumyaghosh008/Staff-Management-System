@@ -88,5 +88,3 @@ cd Staff-Management-System
 gcc main.c staff_operations.c -o staff_management
 ./staff_management
 ```
-
-## Thank you for visiting my project! I aim to provide updates every month to improve and enhance this project. Contributions are always welcome! If you have improvements or new features to suggest, feel free to submit a pull request. If your contribution meets the project’s standards, congratulations—you’ll become an official contributor! Let’s learn and build together. Don’t hesitate to contribute!
