@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <ctype.h>
 #include <string.h>
-#include <math.h>
 #include "staff_operations.h"
 
 // Adding the structure layout for better memory management process.
@@ -68,6 +66,7 @@ Again:
     // Close file
     fclose(file);
 
+AgainPP:
     printf("Press [Y/N] to add more Profile or Stop Here: "); // Here we take option from user that he want to countiniue or not.
     scanf(" %c", &x);
 
@@ -85,8 +84,8 @@ Again:
     {
         printf("\n\n\n");
         printf("404 ERROR.TRY AGAIN \n");
-        ;
         printf("\n\n\n");
+        goto AgainPP;
     }
 }
 
@@ -152,7 +151,7 @@ void delete_staff_profile()
         printf("Staff ID not found!\n");
     }
 
-    printf("\n");
+AgainPPP:
     printf("Press [Y] for go to Main Menu: "); // Here we take option from user that he want to countiniue or not.
     scanf(" %c", &x);
 
@@ -166,8 +165,8 @@ void delete_staff_profile()
     {
         printf("\n\n\n");
         printf("404 ERROR.TRY AGAIN \n");
-        ;
         printf("\n\n\n");
+        goto AgainPPP;
     }
 
     printf("\n\n"); // Just adding some basic styling
@@ -222,7 +221,7 @@ void search_staff_profile()
 
     fclose(file); // Close file
 
-    printf("\n");
+AgainPPPP:
     printf("Press [Y] for go to Main Menu: "); // Here we take option from user that he want to countiniue or not.
     scanf(" %c", &x);
 
@@ -236,8 +235,8 @@ void search_staff_profile()
     {
         printf("\n\n\n");
         printf("404 ERROR.TRY AGAIN \n");
-        ;
         printf("\n\n\n");
+        goto AgainPPPP;
     }
     printf("\n\n"); // Just adding some basic styling
 }
@@ -275,7 +274,7 @@ void show_all_staff_profile()
 
     fclose(file); // Close the file
 
-    printf("\n");
+AgainPPPPP:
     printf("Press [Y] for go to Main Menu: "); // Here we take option from user that he want to countiniue or not.
     scanf(" %c", &x);
 
@@ -289,7 +288,8 @@ void show_all_staff_profile()
     {
         printf("\n\n\n");
         printf("404 ERROR.TRY AGAIN \n");
-        ;
         printf("\n\n\n");
+        goto AgainPPPPP;
+
     }
 }
