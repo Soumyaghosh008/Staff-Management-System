@@ -1,10 +1,6 @@
-# Staff-Management-System
+# Staff-Management-System (SMS v1.0)
 
-This is a complete C Programming based project, created to record and manage all of your staff/student/visitors. For more information please read the README file.
-
-## Description: Staff Management System (SMS v1.0)
-
-A simple **Staff Management System** built using **C Programming Language**, which allows users to manage staff profiles efficiently. For now it's a Terminal based Program.
+A simple **Staff Management System** built using **C Programming Language**, which allows users to manage staff profiles efficiently. For now it's a CLI based Program.
 
 ## 🚀 Features
 
