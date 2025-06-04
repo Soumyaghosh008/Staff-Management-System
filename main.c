@@ -8,17 +8,15 @@
 int main()
 {
 
-    int your_option, try = 0;
+    int your_option;
 
     // Here we creat the entier manue for the user, to choose the option wisely.
-
-    // Just adding some basic styling.
 
     printf("\n\n"); // Just adding some basic styling.
 
     printf("\t\t\t\t\t #####_____Welcome To Staff Managament System_____#####\n\n\n\n\n");
 
-Try_Again: // Address for the goto feature.
+    printf("\n\n"); // Just adding some basic styling.
 
     printf("Enter [1] to Add a Staff Profile \n");
     printf("Enter [2] to Delete a Staff Profile \n");
@@ -35,7 +33,10 @@ Try_Again: // Address for the goto feature.
 
     // Here we creat a switch condition to activate a specific operation one at a time.
     // Here we also call the user_defined_functions as per the choises.
-    switch (your_option)
+
+    while (1)
+    {
+        switch (your_option)
     {
 
     // Here we calling the function which add a staff profile.
@@ -61,28 +62,16 @@ Try_Again: // Address for the goto feature.
         // Here we exit from this program.
     case 5:
         printf("\n\n\n");
-        printf("\t\t\t\t\t #####_____Goodbye.See You Soon My User_____##### \n");
-        ;
-        printf("\n\n\n");
-        break;
+        printf("\t\t\t\t\t #####_____Goodbye My User_____##### \n");
+        return 0;
 
-    // Here we print and compute the try_again feature.
+    // Here we implement the default statement.
     default:
         printf("\n\n\n");
-        printf("404 ERROR.TRY AGAIN \n");
-        ;
-        printf("\n\n\n");
-        // Here we compute the calculations for the try again feature.
-        // Note: This feature only works for 3 times only. After that you have to do this again from start.
-        try++;
-        if (try < 4)
-        {
-            goto Try_Again;
-        }
-        else
-        {
-            printf("Do it from Start");
-        }
+        printf("Invalid Input!");
     }
-    return 0;
+
+        return 0;
+    
+    }
 }
